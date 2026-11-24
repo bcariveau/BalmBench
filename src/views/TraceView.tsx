@@ -58,7 +58,9 @@ export function TraceView({ kind, id }: { kind?: "batch" | "ingredient" | "conta
               <span className="muted">{state.containers.find((container) => container.id === item.containerId)?.name}</span>
             </button>
           ))}
-          {!batches.length && !ingredientLots.length && !containerLots.length ? <p className="empty">Nothing matches.</p> : null}
+          {!batches.length && !ingredientLots.length && !containerLots.length ? (
+            <p className="empty">{query.trim() ? "Nothing matches." : "No lots yet. Complete a batch to start a trace."}</p>
+          ) : null}
         </div>
         <article className="card stack">
           {batch ? (
@@ -137,7 +139,13 @@ export function TraceView({ kind, id }: { kind?: "batch" | "ingredient" | "conta
               {!forwardBatches.length ? <p className="muted">No finished batch has consumed this lot yet.</p> : null}
             </>
           ) : null}
-          {!batch && !ingredientLot && !containerLot ? <p className="empty">Select a lot to see where it came from or where it went.</p> : null}
+          {!batch && !ingredientLot && !containerLot ? (
+            <p className="empty">
+              {state.batches.length || state.ingredientLots.length || state.containerLots.length
+                ? "Select a lot to see where it came from or where it went."
+                : "No lots yet. Complete a batch to start a trace."}
+            </p>
+          ) : null}
         </article>
       </div>
       {labelBatch ? (

@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { applyBatch, buildBatchPlan, nextBatchLotCode } from "../domain/batch";
-import { formatTempRange, formatWeight, money, phaseLabel, round, todayISO, uid } from "../domain/format";
+import { formatAmount, formatTempParts, formatWeight, money, phaseLabel, round, todayISO, uid } from "../domain/format";
 import { evaluateGuardrails, guardrailCounts } from "../domain/guardrails";
 import { scaleFormula, type ScaleInput } from "../domain/scale";
 import { useStore } from "../state/Store";
-import { Badge, Modal } from "../ui/bits";
+import { Badge, Modal, NamePicker } from "../ui/bits";
 import { navigate } from "../ui/router";
 import type { Phase } from "../types";
 
@@ -36,6 +36,7 @@ export function BatchView() {
   const [workshop, setWorkshop] = useState(false);
   const [message, setMessage] = useState("");
   const [confirmShort, setConfirmShort] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   useEffect(() => {
     if (!version) return;
@@ -164,24 +165,19 @@ export function BatchView() {
       <div className="grid-2">
         <article className="card stack">
           <div className="fields cols-2">
-            <label className="field">
-              <span>Formula</span>
-              <select
-                value={selectedFormula.id}
-                onChange={(event) => {
-                  const next = state.formulas.find((item) => item.id === event.target.value);
-                  setFormulaId(event.target.value);
-                  setVersionId(next?.versions.at(-1)?.id ?? "");
-                  setLotTouched(false);
-                }}
-              >
-                {state.formulas.filter((item) => item.versions.length > 0).map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.versions.at(-1)?.name ?? item.id}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <NamePicker
+              label="Formula"
+              value={selectedFormula.id}
+              options={state.formulas
+                .filter((item) => item.versions.length > 0)
+                .map((item) => ({ id: item.id, label: item.versions.at(-1)?.name ?? item.id }))}
+              onChange={(id) => {
+                const next = state.formulas.find((item) => item.id === id);
+                setFormulaId(id);
+                setVersionId(next?.versions.at(-1)?.id ?? "");
+                setLotTouched(false);
+              }}
+            />
             <label className="field">
               <span>Version</span>
               <select value={version.id} onChange={(event) => setVersionId(event.target.value)}>
@@ -192,16 +188,12 @@ export function BatchView() {
                 ))}
               </select>
             </label>
-            <label className="field">
-              <span>Container</span>
-              <select value={containerId} onChange={(event) => setContainerId(event.target.value)}>
-                {state.containers.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <NamePicker
+              label="Container"
+              value={containerId}
+              options={state.containers.map((item) => ({ id: item.id, label: item.name }))}
+              onChange={setContainerId}
+            />
             <label className="field">
               <span>Lot code</span>
               <input
@@ -364,8 +356,56 @@ export function BatchView() {
           rd={rd}
           onRd={setRd}
           onClose={() => setWorkshop(false)}
-          onComplete={() => complete(false)}
+          onComplete={() => {
+            if (!lotCode.trim()) {
+              setMessage("Add a batch lot code.");
+              return;
+            }
+            if (blocking && !rd) {
+              setMessage("Blocking safety errors stop this batch unless you check the personal R&D override.");
+              return;
+            }
+            setConfirmOpen(true);
+          }}
         />
+      ) : null}
+      {confirmOpen ? (
+        <Modal title="Complete this batch?" onClose={() => setConfirmOpen(false)} testId="complete-confirm">
+          <div className="stack">
+            <p>
+              {lotCode} · {formatWeight(plan.batchG, "g")} · {plan.units} units
+            </p>
+            {plan.shortages.length ? (
+              <>
+                <p>Stock is short. Completing records the deficit and stops depleted lots at zero.</p>
+                <ul>
+                  {plan.shortages.map((item) => (
+                    <li key={`${item.kind}-${item.id}`}>
+                      {item.name}: need {item.needed} {item.unit}, have {item.available} {item.unit}, short {round(item.needed - item.available, 3)} {item.unit}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <p>Stock covers this batch.</p>
+            )}
+            <div className="cluster">
+              <button className="btn ghost" type="button" onClick={() => setConfirmOpen(false)}>
+                Cancel
+              </button>
+              <button
+                className="btn primary"
+                type="button"
+                onClick={() => {
+                  setConfirmOpen(false);
+                  complete(plan.shortages.length > 0);
+                }}
+              >
+                Complete batch
+              </button>
+            </div>
+          </div>
+        </Modal>
       ) : null}
       {confirmShort ? (
         <Modal title="Short stock" onClose={() => setConfirmShort(false)} testId="shortage-modal">
@@ -426,29 +466,42 @@ function Workshop({
     if (phase === "oil") return version.phaseTempsC.oilHeat ?? version.phaseTempsC.melt;
     return version.phaseTempsC.coolDownAdd;
   };
+  const openStep = version.steps.findIndex((_, index) => !checked[`step-${index}`]);
+  const stepNumber = openStep === -1 ? version.steps.length : openStep + 1;
+  const pour = formatTempParts(version.phaseTempsC.pour);
   return (
     <div className="workshop" data-testid="workshop">
-      <div className="split">
+      <div className="workshop-head">
         <div>
           <h1>{name}</h1>
           <p className="muted">{lotCode}</p>
         </div>
-        <div className="cluster">
-          <button className="btn" type="button" onClick={() => setDisplayUnit((current) => (current === "g" ? "oz" : "g"))}>
-            {displayUnit === "g" ? "Show oz" : "Show g"}
-          </button>
-          <button className="btn" type="button" onClick={wake.toggle} disabled={!wake.supported}>
-            {wake.supported ? (wake.on ? "Screen awake" : "Keep screen awake") : "Wake lock unavailable"}
-          </button>
-          <button className="btn ghost" type="button" onClick={onClose}>
-            Close
-          </button>
-        </div>
+        <button className="icon-btn" type="button" aria-label="Close" onClick={onClose}>
+          ×
+        </button>
+      </div>
+      <div className="cluster">
+        <button className="btn" type="button" onClick={() => setDisplayUnit((current) => (current === "g" ? "oz" : "g"))}>
+          {displayUnit === "g" ? "Show oz" : "Show g"}
+        </button>
+        <button className="btn" type="button" onClick={wake.toggle} disabled={!wake.supported}>
+          {wake.supported ? (wake.on ? "Awake" : "Stay awake") : "Wake lock unavailable"}
+        </button>
       </div>
       {!wake.supported ? (
         <p className="muted">Screen wake lock is unavailable here. On Android Chrome, open the installed BalmBench app or the site directly.</p>
       ) : null}
       {message ? <p className="banner danger">{message}</p> : null}
+      {plan.shortages.length ? (
+        <div className="banner danger" data-testid="workshop-short">
+          <strong>Short stock</strong>
+          {plan.shortages.map((item) => (
+            <p key={`${item.kind}-${item.id}`}>
+              {item.name}: need {formatAmount(item.needed)} {item.unit}, have {formatAmount(item.available)}, short {formatAmount(item.needed - item.available)}
+            </p>
+          ))}
+        </div>
+      ) : null}
       {blocking ? (
         <label className="check">
           <input type="checkbox" checked={rd} onChange={(event) => onRd(event.target.checked)} />
@@ -458,11 +511,17 @@ function Workshop({
       {PHASES.map((phase) => {
         const lines = plan.lines.filter((line) => line.phase === phase);
         if (!lines.length) return null;
+        const temps = formatTempParts(tempFor(phase));
         return (
           <section key={phase}>
             <div className="split">
               <h2>{phaseLabel(phase)}</h2>
-              <strong>{formatTempRange(tempFor(phase))}</strong>
+              {temps ? (
+                <div className="temp-stack">
+                  <strong>{temps.celsius}</strong>
+                  <span className="muted">{temps.fahrenheit}</span>
+                </div>
+              ) : null}
             </div>
             {lines.map((line) => (
               <label key={line.ingredientId} className="check-row">
@@ -471,26 +530,45 @@ function Workshop({
                   checked={Boolean(checked[line.ingredientId])}
                   onChange={(event) => setChecked((current) => ({ ...current, [line.ingredientId]: event.target.checked }))}
                 />
-                <span>{line.name}</span>
+                <span className="row-name">{line.name}</span>
                 <span className="grams">{formatWeight(line.grams, displayUnit)}</span>
               </label>
             ))}
           </section>
         );
       })}
-      <h2>Pour {formatTempRange(version.phaseTempsC.pour)}</h2>
-      <ol>
+      <section>
+        <div className="split">
+          <h2>Steps</h2>
+          {version.steps.length ? (
+            <strong data-testid="step-count">
+              {stepNumber} of {version.steps.length}
+            </strong>
+          ) : null}
+        </div>
+        {pour ? (
+          <div className="temp-stack">
+            <strong>{pour.celsius}</strong>
+            <span className="muted">{pour.fahrenheit}</span>
+          </div>
+        ) : null}
         {version.steps.map((step, index) => (
-          <li key={step} className="check-row">
+          <label key={`${index}-${step}`} className={index === openStep ? "check-row step-current" : "check-row"}>
             <input
               type="checkbox"
               checked={Boolean(checked[`step-${index}`])}
               onChange={(event) => setChecked((current) => ({ ...current, [`step-${index}`]: event.target.checked }))}
             />
-            <span>{step}</span>
-          </li>
+            <span className="row-name">
+              <span className="muted">
+                {index + 1} of {version.steps.length}
+              </span>
+              <br />
+              {step}
+            </span>
+          </label>
         ))}
-      </ol>
+      </section>
       <div className="workshop-bar">
         <button className="btn primary" type="button" onClick={onComplete}>
           Complete batch

@@ -12,9 +12,9 @@ const CATEGORIES = ["wax", "butter", "carrier_oil", "emulsifier", "preservative"
 
 export function InventoryView({ segment }: { segment: InventorySegment }) {
   const segments: { id: InventorySegment; label: string }[] = [
-    { id: "raw", label: "Raw materials" },
+    { id: "raw", label: "Raw" },
     { id: "containers", label: "Containers" },
-    { id: "finished", label: "Finished goods" },
+    { id: "finished", label: "Finished" },
     { id: "catalog", label: "Catalog" },
   ];
   return (
@@ -23,7 +23,7 @@ export function InventoryView({ segment }: { segment: InventorySegment }) {
         <h1>Inventory</h1>
         <p className="lede">Lots, finished jars and tubes, and the supplier catalog.</p>
       </div>
-      <div className="segment" role="tablist">
+      <div className="segment inventory-tabs" role="tablist">
         {segments.map((item) => (
           <button key={item.id} type="button" className="btn" aria-pressed={segment === item.id} onClick={() => navigate(`/inventory/${item.id}`)}>
             {item.label}
@@ -429,7 +429,6 @@ function FinishedGoods() {
 function Catalog() {
   const { state, mutate } = useStore();
   const [query, setQuery] = useState("");
-  const [editId, setEditId] = useState<string | null>(null);
   const [draft, setDraft] = useState<Ingredient | null>(null);
   const [containerDraft, setContainerDraft] = useState<Container | null>(null);
   const needle = query.trim().toLowerCase();
@@ -441,21 +440,12 @@ function Catalog() {
   return (
     <div className="stack">
       <input className="search" placeholder="Search ingredients, INCI, suppliers" value={query} onChange={(event) => setQuery(event.target.value)} />
-      <article className="card">
-        <h3>Sourcing caveats</h3>
-        <ul className="caveat">
-          {state.caveats.map((note) => (
-            <li key={note}>{note}</li>
-          ))}
-        </ul>
-      </article>
       <div className="cluster">
         <button
           className="btn primary"
           type="button"
           onClick={() => {
             const ingredient = emptyIngredient();
-            setEditId(ingredient.id);
             setDraft(ingredient);
             setContainerDraft(null);
           }}
@@ -467,7 +457,6 @@ function Catalog() {
           type="button"
           onClick={() => {
             const container = emptyContainer();
-            setEditId(container.id);
             setContainerDraft(container);
             setDraft(null);
           }}
@@ -498,7 +487,6 @@ function Catalog() {
               type="button"
               onClick={() => {
                 setDraft(structuredClone(ingredient));
-                setEditId(ingredient.id);
                 setContainerDraft(null);
               }}
             >
@@ -569,7 +557,6 @@ function Catalog() {
               onClick={() => {
                 setContainerDraft(structuredClone(container));
                 setDraft(null);
-                setEditId(container.id);
               }}
             >
               Edit
@@ -600,7 +587,14 @@ function Catalog() {
           ))}
         </article>
       ))}
-      {editId ? null : null}
+      <details className="card caveat-fold">
+        <summary>Sourcing caveats</summary>
+        <ul className="caveat">
+          {state.caveats.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </ul>
+      </details>
     </div>
   );
 }

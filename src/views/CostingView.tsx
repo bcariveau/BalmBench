@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { buildBatchPlan } from "../domain/batch";
-import { effectiveUnitCost } from "../domain/catalog";
 import { marginFromPrice, priceFromMargin } from "../domain/cogs";
 import { money, round } from "../domain/format";
 import { latestVersion } from "../domain/versions";
 import { useStore } from "../state/Store";
+import { NamePicker } from "../ui/bits";
 
 export function CostingView() {
   const { state } = useStore();
@@ -91,32 +91,15 @@ export function CostingView() {
       </div>
       <div className="grid-2">
         <article className="card stack">
-          <label className="field">
-            <span>Price this</span>
-            <select value={source} onChange={(event) => setSource(event.target.value)}>
-              {recipes.map((item) => (
-                <option key={item.formula.id} value={`recipe:${item.formula.id}`}>
-                  {item.version.name} estimate
-                </option>
-              ))}
-              {state.batches.map((batch) => (
-                <option key={batch.id} value={`batch:${batch.id}`}>
-                  {batch.lotCode} actual
-                </option>
-              ))}
-            </select>
-          </label>
-          <p className="muted">{selected.kind}</p>
-          <div className="grid-3">
-            <Kpi label="Batch COGS" value={money(selected.batch)} />
-            <Kpi label="Unit COGS" value={money(selected.unit)} />
-            <Kpi label="Units" value={String(selected.units)} />
-          </div>
-          <p className="muted">
-            Ingredients {money(selected.ingredient)} · containers {money(selected.container)}
-            {selected.label ? ` · label/misc ${money(selected.label)}` : ""}
-            {state.containers[0] ? ` · container cost basis ${money(effectiveUnitCost(state.containers[0]) ?? 0)}` : ""}
-          </p>
+          <NamePicker
+            label="Price this"
+            value={source}
+            onChange={setSource}
+            options={[
+              ...recipes.map((item) => ({ id: `recipe:${item.formula.id}`, label: `${item.version.name} estimate` })),
+              ...state.batches.map((batch) => ({ id: `batch:${batch.id}`, label: `${batch.versionSnapshot.name} · ${batch.lotCode}` })),
+            ]}
+          />
           <div className="segment">
             <button type="button" className="btn" aria-pressed={mode === "margin"} onClick={() => setMode("margin")}>
               Set margin
@@ -138,6 +121,16 @@ export function CostingView() {
               </>
             )}
           </div>
+          <p className="muted">{selected.kind}</p>
+          <div className="grid-3">
+            <Kpi label="Batch COGS" value={money(selected.batch)} />
+            <Kpi label="Unit COGS" value={money(selected.unit)} />
+            <Kpi label="Units" value={String(selected.units)} />
+          </div>
+          <p className="muted">
+            Ingredients {money(selected.ingredient)} · containers {money(selected.container)}
+            {selected.label ? ` · label/misc ${money(selected.label)}` : ""}
+          </p>
         </article>
         <div className="stack">
           <PriceCard title="Retail" price={retail} margin={retailMarginPct} unitCost={selected.unit} units={selected.units} />

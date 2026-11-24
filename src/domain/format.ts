@@ -19,13 +19,30 @@ export function ozToGrams(oz: number): number {
   return oz * GRAMS_PER_OZ;
 }
 
+export function formatAmount(value: number): string {
+  const rounded = round(value, 2);
+  if (!Number.isFinite(rounded) || Object.is(rounded, -0)) return "0";
+  return String(rounded);
+}
+
 export function formatGrams(grams: number, digits = 2): string {
+  if (digits === 2) return `${formatAmount(grams)} g`;
   return `${round(grams, digits).toFixed(digits)} g`;
 }
 
 export function formatWeight(grams: number, unit: "g" | "oz", digits = 2): string {
-  if (unit === "oz") return `${round(gramsToOz(grams), digits).toFixed(digits)} oz`;
-  return formatGrams(grams, digits);
+  const value = unit === "oz" ? gramsToOz(grams) : grams;
+  if (digits === 2) return `${formatAmount(value)} ${unit}`;
+  return `${round(value, digits).toFixed(digits)} ${unit}`;
+}
+
+export function formatTempParts(range?: { min?: number; max?: number } | null): { celsius: string; fahrenheit: string } | null {
+  const min = range?.min;
+  const max = range?.max;
+  if (min == null && max == null) return null;
+  if (min != null && max != null) return { celsius: `${min}–${max}°C`, fahrenheit: `${cToF(min)}–${cToF(max)}°F` };
+  if (max != null) return { celsius: `≤ ${max}°C`, fahrenheit: `≤ ${cToF(max)}°F` };
+  return { celsius: `≥ ${min}°C`, fahrenheit: `≥ ${cToF(min ?? 0)}°F` };
 }
 
 export function money(n: number, digits = 2): string {

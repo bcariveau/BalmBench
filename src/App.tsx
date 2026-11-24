@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactElement } from "react";
 import { buildBundle, summarizeBundle } from "./domain/gist";
 import { todayISO } from "./domain/format";
 import { useStore } from "./state/Store";
-import { downloadJson, IconBeaker, IconBook, IconBoxes, IconGear, IconMoon, IconSearch, IconSun, IconTag } from "./ui/bits";
+import { downloadJson, IconBeaker, IconBook, IconBoxes, IconCloud, IconGear, IconMoon, IconSearch, IconSun, IconTag } from "./ui/bits";
 import { useRoute, type TabName } from "./ui/router";
 import { SettingsPanel } from "./ui/SettingsPanel";
 import { BatchView } from "./views/BatchView";
@@ -42,8 +42,9 @@ export function App() {
           <strong>BalmBench</strong>
         </div>
         <div className="header-actions">
-          <button className="pill" type="button" data-status={sync.status} onClick={() => setSettingsOpen(true)}>
-            {syncLabel(sync.status)}
+          <button className="pill" type="button" data-status={sync.status} aria-label={syncLabel(sync.status)} onClick={() => setSettingsOpen(true)}>
+            <IconCloud />
+            <span className="pill-text">{syncLabel(sync.status)}</span>
           </button>
           <button
             className="icon-btn"

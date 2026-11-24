@@ -7,7 +7,7 @@ import { evaluateGuardrails, guardrailCounts } from "../domain/guardrails";
 import { blankVersion, createSeedState } from "../domain/seed";
 import { cloneFormula, commitDraft, latestVersion, nextVersionLabel, restoreAsNewVersion, startDraft } from "../domain/versions";
 import { useStore } from "../state/Store";
-import { Badge } from "../ui/bits";
+import { Badge, useNarrow } from "../ui/bits";
 import { InciDialog } from "../ui/InciDialog";
 import { navigate } from "../ui/router";
 import type { FormulaVersion, Phase, PhWindow, ProductType } from "../types";
@@ -23,7 +23,8 @@ const TEMP_KEYS = [
 
 export function RecipesView({ formulaId }: { formulaId?: string }) {
   const { state, mutate } = useStore();
-  const formula = state.formulas.find((item) => item.id === formulaId) ?? state.formulas[0];
+  const narrow = useNarrow();
+  const formula = formulaId ? state.formulas.find((item) => item.id === formulaId) : narrow ? undefined : state.formulas[0];
   const [versionId, setVersionId] = useState<string | null>(null);
   const [editing, setEditing] = useState(false);
   const [note, setNote] = useState("");
@@ -48,7 +49,7 @@ export function RecipesView({ formulaId }: { formulaId?: string }) {
     navigate(`/recipes/${id}`);
   }
 
-  if (!formula) {
+  if (!state.formulas.length) {
     return (
       <section>
         <div className="page-head">
@@ -62,47 +63,91 @@ export function RecipesView({ formulaId }: { formulaId?: string }) {
     );
   }
 
-  const selected = formula.versions.find((version) => version.id === versionId) ?? latestVersion(formula);
+  if (!formula) {
+    return (
+      <section>
+        <div className="page-head">
+          <div className="split">
+            <div>
+              <h1>Recipes</h1>
+              <p className="lede">Formulas, version history, and live safety checks.</p>
+            </div>
+            <button className="btn primary" type="button" onClick={createFormula}>
+              New formula
+            </button>
+          </div>
+        </div>
+        <div className="list">
+          {state.formulas.map((item) => {
+            const version = latestVersion(item);
+            const preview = item.draft ?? version;
+            return (
+              <button key={item.id} type="button" className="choice" onClick={() => navigate(`/recipes/${item.id}`)}>
+                <strong>{preview?.name ?? item.id}</strong>
+                <span className="cluster">
+                  <Badge tone={preview?.productType === "lip" ? "clay" : "sage"}>{preview ? productLabel(preview.productType) : "Draft"}</Badge>
+                  <Badge>{version?.versionLabel ?? "draft"}</Badge>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+    );
+  }
+
+  const recipe = formula;
+  const selected = recipe.versions.find((version) => version.id === versionId) ?? latestVersion(recipe);
   const shown = editing && formula.draft ? formula.draft : selected;
   const findings = shown ? evaluateGuardrails(shown, state.ingredients) : [];
   const counts = guardrailCounts(findings);
-  const used = selected ? state.batches.some((batch) => batch.formulaId === formula.id && batch.versionId === selected.id) : false;
+  const used = selected ? state.batches.some((batch) => batch.formulaId === recipe.id && batch.versionId === selected.id) : false;
 
   function patchDraft(partial: Partial<FormulaVersion>) {
     mutate((current) => ({
       ...current,
       formulas: current.formulas.map((item) =>
-        item.id === formula.id && item.draft ? { ...item, draft: { ...item.draft, ...partial } } : item,
+        item.id === recipe.id && item.draft ? { ...item, draft: { ...item.draft, ...partial } } : item,
       ),
     }));
   }
 
   function beginEdit() {
-    if (!selected && !formula.draft) return;
+    if (!selected && !recipe.draft) return;
     mutate((current) => ({
       ...current,
       formulas: current.formulas.map((item) =>
-        item.id === formula.id ? { ...item, draft: item.draft ?? (selected ? startDraft(selected) : blankVersion()) } : item,
+        item.id === recipe.id ? { ...item, draft: item.draft ?? (selected ? startDraft(selected) : blankVersion()) } : item,
       ),
     }));
     setEditing(true);
   }
 
+  const showList = !narrow || !formulaId;
+  const showDetail = Boolean(formula && shown) && (!narrow || Boolean(formulaId));
+
   return (
     <section>
       <div className="page-head">
+        {narrow && formula ? (
+          <button className="btn ghost" type="button" onClick={() => navigate("/recipes")}>
+            Back
+          </button>
+        ) : null}
         <div className="split">
           <div>
-            <h1>Recipes</h1>
-            <p className="lede">Formulas, version history, and live safety checks.</p>
+            <h1 data-testid={narrow && formula ? "recipe-title" : undefined}>{narrow && formula && shown ? shown.name : "Recipes"}</h1>
+            {narrow && formula ? null : <p className="lede">Formulas, version history, and live safety checks.</p>}
           </div>
-          <button className="btn primary" type="button" onClick={createFormula}>
-            New formula
-          </button>
+          {narrow && formula ? null : (
+            <button className="btn primary" type="button" onClick={createFormula}>
+              New formula
+            </button>
+          )}
         </div>
       </div>
       <div className="recipe-layout">
-        <div className="list">
+        {showList ? <div className="list">
           {state.formulas.map((item) => {
             const version = latestVersion(item);
             const preview = item.draft ?? version;
@@ -124,13 +169,13 @@ export function RecipesView({ formulaId }: { formulaId?: string }) {
               </button>
             );
           })}
-        </div>
-        {shown ? (
+        </div> : null}
+        {showDetail && shown && formula ? (
           <div className="stack">
             <article className="card stack">
               <div className="split">
                 <div>
-                  <h2 data-testid="recipe-title">{shown.name}</h2>
+                  {narrow ? null : <h2 data-testid="recipe-title">{shown.name}</h2>}
                   <p className="muted">
                     {productLabel(shown.productType)} · {editing ? "Draft" : shown.versionLabel}
                     {used ? " · locked by a completed batch" : ""}
@@ -198,12 +243,6 @@ export function RecipesView({ formulaId }: { formulaId?: string }) {
               </div>
             </article>
 
-            {editing && formula.draft ? (
-              <Editor draft={formula.draft} note={note} setNote={setNote} patchDraft={patchDraft} containers={state.containers} ingredients={state.ingredients} />
-            ) : selected ? (
-              <RecipeRead version={selected} ingredients={state.ingredients} containers={state.containers} />
-            ) : null}
-
             <div className="cluster">
               {!editing ? (
                 <button className="btn primary" type="button" onClick={beginEdit}>
@@ -211,6 +250,10 @@ export function RecipesView({ formulaId }: { formulaId?: string }) {
                 </button>
               ) : (
                 <>
+                  <label className="field">
+                    <span>Change note</span>
+                    <input value={note} onChange={(event) => setNote(event.target.value)} placeholder="What changed?" />
+                  </label>
                   <button
                     className="btn primary"
                     type="button"
@@ -249,6 +292,12 @@ export function RecipesView({ formulaId }: { formulaId?: string }) {
                 Delete
               </button>
             </div>
+
+            {editing && formula.draft ? (
+              <Editor draft={formula.draft} patchDraft={patchDraft} containers={state.containers} ingredients={state.ingredients} />
+            ) : selected ? (
+              <RecipeRead version={selected} ingredients={state.ingredients} containers={state.containers} />
+            ) : null}
 
             {history ? (
               <article className="card stack">
@@ -406,15 +455,11 @@ function RecipeRead({
 
 function Editor({
   draft,
-  note,
-  setNote,
   patchDraft,
   ingredients,
   containers,
 }: {
   draft: FormulaVersion;
-  note: string;
-  setNote: (value: string) => void;
   patchDraft: (partial: Partial<FormulaVersion>) => void;
   ingredients: ReturnType<typeof createSeedState>["ingredients"];
   containers: ReturnType<typeof createSeedState>["containers"];
@@ -605,13 +650,9 @@ function Editor({
       <button className="btn" type="button" onClick={() => patchDraft({ steps: [...draft.steps, ""] })}>
         Add step
       </button>
-      <label className="field">
+              <label className="field">
         <span>Notes</span>
         <textarea value={draft.notes} onChange={(event) => patchDraft({ notes: event.target.value })} />
-      </label>
-      <label className="field">
-        <span>Change note for the next version</span>
-        <input value={note} onChange={(event) => setNote(event.target.value)} placeholder="What changed?" />
       </label>
     </article>
   );

@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 export function Modal({
   title,
@@ -138,6 +138,65 @@ export function IconMoon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M16 3.5A8.5 8.5 0 1 0 20.5 14 7 7 0 0 1 16 3.5z" />
+    </svg>
+  );
+}
+export function useNarrow(maxWidth = 959): boolean {
+  const query = `(max-width: ${maxWidth}px)`;
+  const [matches, setMatches] = useState(() => typeof window !== "undefined" && window.matchMedia(query).matches);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const onChange = () => setMatches(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, [query]);
+  return matches;
+}
+
+export function NamePicker({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  options: { id: string; label: string }[];
+  onChange: (id: string) => void;
+}) {
+  const ref = useRef<HTMLDetailsElement>(null);
+  const current = options.find((option) => option.id === value)?.label ?? "Choose";
+  return (
+    <div className="field span-2">
+      <span>{label}</span>
+      <details className="picker" ref={ref}>
+        <summary>{current}</summary>
+        <div className="list">
+          {options.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              className="choice"
+              aria-pressed={option.id === value}
+              onClick={() => {
+                onChange(option.id);
+                if (ref.current) ref.current.open = false;
+              }}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      </details>
+    </div>
+  );
+}
+
+export function IconCloud() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7.5 18h9.2a3.8 3.8 0 0 0 .5-7.6 5.6 5.6 0 0 0-10.8 1.6A3.2 3.2 0 0 0 7.5 18z" />
     </svg>
   );
 }
