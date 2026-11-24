@@ -1,0 +1,1275 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedDate": "2026-11-23",
+  "currency": "USD",
+  "project": "BalmBench",
+  "caveats": [
+    "Prices and URLs were verified on 2026-11-23 from live product pages at Bulk Apothecary, Wholesale Supplies Plus, Bramble Berry, and SKS Bottle & Packaging. Mountain Rose Herbs category pages showed many items out of stock and did not yield clean in-stock pack prices in this pass.",
+    "Geogard ECT / Preservative Eco was not found as a live pack at the four allowed ingredient suppliers; the starter lotion therefore uses Optiphen Plus.",
+    "High-oleic sunflower oil was not confirmed by name; included sunflower quotes are refined sunflower only.",
+    "Vitamin E T-50 was verified only at Wholesale Supplies Plus (Bulk Apothecary lists tocopheryl acetate, which is not T-50).",
+    "Essential-oil IFRA limits are conservative defaults for v1. Always verify the current batch IFRA certificate before selling.",
+    "Quoted prices are product prices before shipping, tax, or membership discounts and can change."
+  ],
+  "ingredients": [
+    {
+      "id": "beeswax-yellow",
+      "name": "Yellow Beeswax Pastilles",
+      "inciName": "Cera Alba",
+      "category": "wax",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 5.0,
+        "max": 30.0
+      },
+      "maxSafePct": {
+        "lip": 30.0,
+        "bodyLotion": 8.0,
+        "notes": "Above ~22–25% in a twist-up tube can drag; keep lotion use low or it will feel waxy."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Natural yellow color and mild honey/smoky scent. Adds structure and a clean snap in lip balm sticks. Melt fully with butters/oils at 75–80 °C.",
+      "quotes": [
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb yellow pastilles",
+          "priceUsd": 12.07,
+          "costPerG": 0.0266,
+          "url": "https://www.wholesalesuppliesplus.com/products/beeswax-yellow-pastilles",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Bramble Berry",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb yellow beeswax",
+          "priceUsd": 11.99,
+          "costPerG": 0.0264,
+          "url": "https://www.brambleberry.com/shop-by-product/waxes/yellow-beeswax/V000826.html",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        }
+      ]
+    },
+    {
+      "id": "beeswax-white",
+      "name": "White Beeswax Pastilles",
+      "inciName": "Cera Alba",
+      "category": "wax",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 5.0,
+        "max": 30.0
+      },
+      "maxSafePct": {
+        "lip": 30.0,
+        "bodyLotion": 8.0,
+        "notes": "Same structural role as yellow beeswax; choose white when a pale or custom-colored stick is the goal."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Filtered and color-removed; milder scent and paler color than yellow. Bulk Apothecary lists white and yellow granules on the same product page.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb White granules/pearls",
+          "priceUsd": 14.32,
+          "costPerG": 0.0316,
+          "url": "https://www.bulkapothecary.com/beeswax-white-and-yellow/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Select the 1 lb White option on this shared white/yellow product page."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb ultra refined & bleached",
+          "priceUsd": 15.9,
+          "costPerG": 0.0351,
+          "url": "https://www.wholesalesuppliesplus.com/products/beeswax-ultra-refined-bleached",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        }
+      ]
+    },
+    {
+      "id": "shea-butter-refined",
+      "name": "Refined Shea Butter",
+      "inciName": "Butyrospermum Parkii (Shea) Butter",
+      "category": "butter",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 3.0,
+        "max": 20.0
+      },
+      "maxSafePct": {
+        "lip": 20.0,
+        "bodyLotion": 15.0,
+        "notes": "High shea can feel heavy and may recrystallize (graininess) if cooled slowly. Temper or cool briskly in balms."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 12,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Creamy off-white refined/ultra-refined butter with low odor. Tree-nut-derived; label accordingly. Heat to 75–85 °C and cool quickly to reduce graininess.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 396.893,
+          "packLabel": "14 oz Naturally Refined",
+          "priceUsd": 5.85,
+          "costPerG": 0.0147,
+          "url": "https://www.bulkapothecary.com/pure-shea-butter-bulk/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb Ultra Refined",
+          "priceUsd": 8.3,
+          "costPerG": 0.0183,
+          "url": "https://www.wholesalesuppliesplus.com/products/shea-butter-ultra-refined",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        }
+      ]
+    },
+    {
+      "id": "cocoa-butter-deodorized",
+      "name": "Deodorized Cocoa Butter",
+      "inciName": "Theobroma Cacao (Cocoa) Seed Butter",
+      "category": "butter",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 2.0,
+        "max": 15.0
+      },
+      "maxSafePct": {
+        "lip": 20.0,
+        "bodyLotion": 10.0,
+        "notes": "Adds firmness and a clean snap. Too much can make a stick hard or waxy and a lotion heavy."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Choose deodorized/natural-color grades so a chocolate odor does not clash with peppermint or citrus. Melts near body temperature; excellent structure in lip balm.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 396.893,
+          "packLabel": "14 oz Natural Deodorized",
+          "priceUsd": 12.83,
+          "costPerG": 0.0323,
+          "url": "https://www.bulkapothecary.com/raw-ingredients/waxes-and-butters/wholesale-cocoa-butter-bulk/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Select Natural Deodorized (not Pure Natural) on this shared cocoa butter page."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb Deodorized & Natural Color",
+          "priceUsd": 31.01,
+          "costPerG": 0.0684,
+          "url": "https://www.wholesalesuppliesplus.com/products/cocoa-butter-deodorized-natural-color",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        }
+      ]
+    },
+    {
+      "id": "jojoba-oil-golden",
+      "name": "Golden Jojoba Oil",
+      "inciName": "Simmondsia Chinensis (Jojoba) Seed Oil",
+      "category": "carrier_oil",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 2.0,
+        "max": 30.0
+      },
+      "maxSafePct": {
+        "lip": 40.0,
+        "bodyLotion": 15.0,
+        "notes": "Technically a liquid wax ester; very stable. Golden grade adds a slight yellow tint."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Unrefined golden jojoba improves oxidative stability and gives a dry, silky glide in balms and lotions. 14 oz packs treated as net weight (same size ladder as 7 lb bulk).",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 396.893,
+          "packLabel": "14 oz Golden Jojoba Oil",
+          "priceUsd": 11.89,
+          "costPerG": 0.03,
+          "url": "https://www.bulkapothecary.com/golden-jojoba-oil/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 396.893,
+          "packLabel": "14 oz Golden Jojoba Oil",
+          "priceUsd": 13.06,
+          "costPerG": 0.0329,
+          "url": "https://www.wholesalesuppliesplus.com/products/jojoba-oil-golden",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        }
+      ]
+    },
+    {
+      "id": "sweet-almond-oil",
+      "name": "Sweet Almond Oil",
+      "inciName": "Prunus Amygdalus Dulcis (Sweet Almond) Oil",
+      "category": "carrier_oil",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 5.0,
+        "max": 40.0
+      },
+      "maxSafePct": {
+        "lip": 50.0,
+        "bodyLotion": 25.0,
+        "notes": "Tree-nut allergen. For a nut-free swap, use high-oleic sunflower 1:1 once a confirmed high-oleic grade is sourced."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 12,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Lightweight, fast-spreading refined carrier for balms and lotions. Protect from heat and light; add mixed tocopherols. WSP refined sweet almond was listed but mostly out of stock (only a 420 lb drum available) on 2026-11-23, so it was not quoted.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 425.2425,
+          "packLabel": "15 oz refined sweet almond oil",
+          "priceUsd": 4.9,
+          "costPerG": 0.0115,
+          "url": "https://www.bulkapothecary.com/sweet-almond-oil/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        }
+      ]
+    },
+    {
+      "id": "fractionated-coconut-oil",
+      "name": "Fractionated Coconut Oil (MCT)",
+      "inciName": "Caprylic/Capric Triglyceride",
+      "category": "carrier_oil",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 5.0,
+        "max": 40.0
+      },
+      "maxSafePct": {
+        "lip": 50.0,
+        "bodyLotion": 25.0,
+        "notes": "Stays liquid, light, and highly stable. Confirm coconut vs palm origin on the COA if that matters for labeling."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "BA quote is the coconut-based MCT option on a shared coconut/palm product page. WSP lists this as MCT / mid-chain triglycerides; INCI is the standard Caprylic/Capric Triglyceride — confirm on the SDS/COA.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 425.2425,
+          "packLabel": "15 oz Coconut Based MCT",
+          "priceUsd": 7.41,
+          "costPerG": 0.0174,
+          "url": "https://www.bulkapothecary.com/fractionated-coconut-oil-mct-medium-chain-triglycerides/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Select the Coconut Based 15 oz option, not the Palm Based option."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb MCT Mid Chain Triglycerides Liquid",
+          "priceUsd": 8.49,
+          "costPerG": 0.0187,
+          "url": "https://www.wholesalesuppliesplus.com/products/mct-mid-chain-triglycerides-liquid",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Sold as MCT liquid; verify INCI on the current SDS."
+        }
+      ]
+    },
+    {
+      "id": "sunflower-oil-high-oleic",
+      "name": "Sunflower Oil (High-Oleic Preferred)",
+      "inciName": "Helianthus Annuus (Sunflower) Seed Oil",
+      "category": "carrier_oil",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 5.0,
+        "max": 40.0
+      },
+      "maxSafePct": {
+        "lip": 50.0,
+        "bodyLotion": 25.0,
+        "notes": "High-oleic grades are more oxidation-stable and preferred for leave-on products. Standard linoleic sunflower goes rancid faster."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 12,
+      "phWindow": null,
+      "phototoxic": false,
+      "pricingStatus": "substituted_refined_not_confirmed_high_oleic",
+      "notes": "A listing explicitly labeled high-oleic was not found at Bulk Apothecary, Wholesale Supplies Plus, Bramble Berry, or Mountain Rose Herbs in this pass. Quotes below are for refined sunflower oil only — not confirmed high-oleic on the product pages. Prefer a COA showing high oleic acid before using this as a long-shelf-life nut-free swap.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 425.2425,
+          "packLabel": "15 oz Sunflower Oil (Refined)",
+          "priceUsd": 4.56,
+          "costPerG": 0.0107,
+          "url": "https://www.bulkapothecary.com/sunflower-oil-refined/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Product is listed as refined sunflower oil; high-oleic grade is not stated on the page."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb Sunflower Oil - Refined",
+          "priceUsd": 5.93,
+          "costPerG": 0.0131,
+          "url": "https://www.wholesalesuppliesplus.com/products/sunflower-oil-refined",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Product is listed as refined sunflower oil; high-oleic grade is not stated on the page."
+        }
+      ]
+    },
+    {
+      "id": "castor-oil",
+      "name": "Castor Oil",
+      "inciName": "Ricinus Communis (Castor) Seed Oil",
+      "category": "carrier_oil",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 3.0,
+        "max": 15.0
+      },
+      "maxSafePct": {
+        "lip": 20.0,
+        "bodyLotion": 10.0,
+        "notes": "High ricinoleic content gives shine and glide in lip balm. Above ~15–20% can feel sticky."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Viscous oil that improves slip and a modest natural sheen in stick balms. 12% is a classic lip-balm level.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 425.2425,
+          "packLabel": "15 oz Castor Oil",
+          "priceUsd": 4.5,
+          "costPerG": 0.0106,
+          "url": "https://www.bulkapothecary.com/castor-oil/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb Castor Oil",
+          "priceUsd": 4.39,
+          "costPerG": 0.0097,
+          "url": "https://www.wholesalesuppliesplus.com/products/castor-oil",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        }
+      ]
+    },
+    {
+      "id": "olivem-1000",
+      "name": "Olivem 1000",
+      "inciName": "Cetearyl Olivate, Sorbitan Olivate",
+      "category": "emulsifier",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 3.0,
+        "max": 6.0
+      },
+      "maxSafePct": {
+        "lip": null,
+        "bodyLotion": 8.0,
+        "notes": "Use 3–5% as the sole O/W emulsifier, or 0.5–2% as a co-emulsifier. Not typically used in anhydrous lip balm. Manufacturer guidance keeps the total oil phase (including emulsifier) around ≤25%."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 12,
+      "phWindow": {
+        "min": 3.0,
+        "max": 12.0
+      },
+      "phototoxic": false,
+      "notes": "Olive-derived PEG-free O/W emulsifier (ECOCERT/COSMOS-suitable). Heat in the oil phase to ~70–75 °C. Wide pH tolerance. Only a Wholesale Supplies Plus quote was verified in this pass.",
+      "quotes": [
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb Olivem 1000",
+          "priceUsd": 33.4,
+          "costPerG": 0.0736,
+          "url": "https://www.wholesalesuppliesplus.com/products/olivem-1000",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 56.699,
+          "packLabel": "2 oz Olivem 1000",
+          "priceUsd": 6.31,
+          "costPerG": 0.1113,
+          "url": "https://www.wholesalesuppliesplus.com/products/olivem-1000",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Smaller starter pack from the same supplier."
+        }
+      ]
+    },
+    {
+      "id": "ritamulse-scg",
+      "name": "Ritamulse SCG Emulsifying Wax",
+      "inciName": "Glyceryl Stearate, Cetearyl Alcohol, Sodium Stearoyl Lactylate",
+      "category": "emulsifier",
+      "defaultPhase": "oil",
+      "typicalUsagePct": {
+        "min": 2.0,
+        "max": 10.0
+      },
+      "maxSafePct": {
+        "lip": null,
+        "bodyLotion": 10.0,
+        "notes": "Plant-based anionic O/W emulsifier. Avoid cationic ingredients. Best stability roughly pH 5–7.5."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 12,
+      "phWindow": {
+        "min": 5.0,
+        "max": 7.5
+      },
+      "phototoxic": false,
+      "notes": "Stocked at Wholesale Supplies Plus under the name Ritamulse SCG Emulsifying Wax (also known as EcoMulse / Natramulse / Emulsimulse). Not found as a live listing at Bulk Apothecary, Bramble Berry, or Mountain Rose Herbs in this pass. Formulate in the oil phase; pH 5–7.5.",
+      "quotes": [
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 453.592,
+          "packLabel": "1 lb Ritamulse SCG Emulsifying Wax",
+          "priceUsd": 12.22,
+          "costPerG": 0.0269,
+          "url": "https://www.wholesalesuppliesplus.com/products/ritamulse-scg-emulsifying-wax",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 56.699,
+          "packLabel": "2 oz Ritamulse SCG Emulsifying Wax",
+          "priceUsd": 3.18,
+          "costPerG": 0.0561,
+          "url": "https://www.wholesalesuppliesplus.com/products/ritamulse-scg-emulsifying-wax",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Smaller starter pack from the same supplier."
+        }
+      ]
+    },
+    {
+      "id": "geogard-ect",
+      "name": "Geogard ECT / Preservative Eco",
+      "inciName": "Benzyl Alcohol, Salicylic Acid, Glycerin, Sorbic Acid",
+      "category": "preservative",
+      "defaultPhase": "cool_down",
+      "typicalUsagePct": {
+        "min": 0.6,
+        "max": 1.0
+      },
+      "maxSafePct": {
+        "lip": null,
+        "bodyLotion": 1.0,
+        "notes": "Broad-spectrum ECOCERT-style system. Salicylic acid limits make this a poor first choice for lip (IFRA Cat 1 / drug-active considerations). Effective pH 3.0–8.0. Add below 45 °C."
+      },
+      "lipSafe": false,
+      "shelfLifeMonths": 24,
+      "phWindow": {
+        "min": 3.0,
+        "max": 8.0
+      },
+      "phototoxic": false,
+      "pricingStatus": "unavailable",
+      "notes": "Requested natural preservative, but no live retail pack price was found at Bramble Berry, Bulk Apothecary, Wholesale Supplies Plus, or Mountain Rose Herbs on 2026-11-23. Bramble Berry does stock Geogard 221 (different INCI: Benzyl Alcohol, Dehydroacetic Acid) — not quoted here because it is not Geogard ECT. Use Optiphen Plus as the verified v1 preservative until ECT is sourced.",
+      "quotes": []
+    },
+    {
+      "id": "optiphen-plus",
+      "name": "Optiphen Plus",
+      "inciName": "Phenoxyethanol, Caprylyl Glycol, Sorbic Acid",
+      "category": "preservative",
+      "defaultPhase": "cool_down",
+      "typicalUsagePct": {
+        "min": 0.75,
+        "max": 1.5
+      },
+      "maxSafePct": {
+        "lip": 1.0,
+        "bodyLotion": 1.5,
+        "notes": "Phenoxyethanol is commonly capped at 1.0% in many markets. Effective only at pH ≤ 6.0. Add in cool-down below 45 °C and mix well; can occasionally thin emulsions."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": {
+        "min": 3.0,
+        "max": 6.0
+      },
+      "phototoxic": false,
+      "notes": "Verified live at Bramble Berry (1 oz $6.99, 4 oz $19.99, 16 oz $69.99, 5 lbs $324.99). Formaldehyde-free broad-spectrum system. Target lotion pH 4.8–5.5 sits inside the pH window. WSP sells a 'Compare to Optiphen Plus' generic (Sorbic Acid +2 PF) that was not quoted as the branded material.",
+      "quotes": [
+        {
+          "supplier": "Bramble Berry",
+          "packSizeG": 28.3495,
+          "packLabel": "1 oz Optiphen Plus",
+          "priceUsd": 6.99,
+          "costPerG": 0.2466,
+          "url": "https://www.brambleberry.com/shop-by-product/additives-and-lye/preservatives/optiphen-plus/V001762.html",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Bramble Berry",
+          "packSizeG": 113.398,
+          "packLabel": "4 oz Optiphen Plus",
+          "priceUsd": 19.99,
+          "costPerG": 0.1763,
+          "url": "https://www.brambleberry.com/shop-by-product/additives-and-lye/preservatives/optiphen-plus/V001762.html",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Larger pack from the same supplier; better cost per gram."
+        }
+      ]
+    },
+    {
+      "id": "distilled-water",
+      "name": "Distilled Water",
+      "inciName": "Aqua",
+      "category": "water",
+      "defaultPhase": "water",
+      "typicalUsagePct": {
+        "min": 50.0,
+        "max": 85.0
+      },
+      "maxSafePct": {
+        "lip": null,
+        "bodyLotion": 90.0,
+        "notes": "Any water or hydrosol requires a broad-spectrum preservative. Do not add to anhydrous lip balm unless you redesign as a preserved emulsion."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "pricingStatus": "retail_benchmark_not_specialty_quoted",
+      "notes": "Use distilled or deionized water, not tap water. This is a standard grocery/pharmacy item (typically 1-gallon jugs). No specialty quote was invented from Bramble Berry, Bulk Apothecary, Wholesale Supplies Plus, or Mountain Rose Herbs. Weigh the water phase and replenish evaporation before combining phases.",
+      "quotes": []
+    },
+    {
+      "id": "vitamin-e-t50",
+      "name": "Vitamin E Mixed Tocopherols T-50",
+      "inciName": "Tocopherol",
+      "category": "antioxidant",
+      "defaultPhase": "cool_down",
+      "typicalUsagePct": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "maxSafePct": {
+        "lip": 1.0,
+        "bodyLotion": 1.0,
+        "notes": "Antioxidant only — it does not preserve against bacteria, yeast, or mold. T-50 is mixed tocopherols, not tocopheryl acetate."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 12,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "WSP lists INCI as mixed tocopherols blended with soybean oil (Glycine Soja Oil). Add in cool-down. Bulk Apothecary’s listed vitamin E is tocopheryl acetate, not T-50, so it was not quoted.",
+      "quotes": [
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 14.1748,
+          "packLabel": "0.5 oz Vitamin E Natural T-50",
+          "priceUsd": 3.21,
+          "costPerG": 0.2265,
+          "url": "https://www.wholesalesuppliesplus.com/products/vitamin-e-natural-t-50",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight"
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 56.699,
+          "packLabel": "2 oz Vitamin E Natural T-50",
+          "priceUsd": 9.15,
+          "costPerG": 0.1614,
+          "url": "https://www.wholesalesuppliesplus.com/products/vitamin-e-natural-t-50",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Larger pack from the same supplier."
+        }
+      ]
+    },
+    {
+      "id": "eo-peppermint",
+      "name": "Peppermint Essential Oil",
+      "inciName": "Mentha Piperita (Peppermint) Oil",
+      "category": "essential_oil",
+      "defaultPhase": "cool_down",
+      "typicalUsagePct": {
+        "min": 0.3,
+        "max": 1.0
+      },
+      "maxSafePct": {
+        "lip": 1.0,
+        "bodyLotion": 2.0,
+        "notes": "IFRA Category 1 (lip) is strict. 0.5–1.0% is usually comfortable; menthol can sting chapped lips. Always verify the supplier batch IFRA Cat 1 certificate. Conservative total-EO comfort cap for lip balm is 1.0%."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Use Mentha piperita, not cornmint (Mentha arvensis). On the Bulk Apothecary page, choose Supreme (described as piperita), not the Japan/arvensis option. Add below 65 °C in balms and below 45 °C in lotions.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 56.699,
+          "packLabel": "2 oz Supreme (Mentha piperita)",
+          "priceUsd": 11.45,
+          "costPerG": 0.2019,
+          "url": "https://www.bulkapothecary.com/essential-oils/peppermint-oil/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Select the Supreme 2 oz option, not Japan (Mentha arvensis). BA small EO sizes are labeled oz (not fl oz) on a weight ladder up to 5 lb, so this quote uses weight."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 52.6408,
+          "packLabel": "2 fl oz Peppermint (Natural) EO 712",
+          "priceUsd": 18.9,
+          "costPerG": 0.359,
+          "url": "https://www.wholesalesuppliesplus.com/products/peppermint-natural-eo-certified-100-pure-712",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "volume_estimated_weight",
+          "notes": "Weight estimated at 0.89 g/mL × 2 fl oz. Confirm Mentha piperita (vs arvensis) on the batch COA; the product page did not state the botanical name."
+        }
+      ]
+    },
+    {
+      "id": "eo-lavender",
+      "name": "Lavender Essential Oil",
+      "inciName": "Lavandula Angustifolia (Lavender) Oil",
+      "category": "essential_oil",
+      "defaultPhase": "cool_down",
+      "typicalUsagePct": {
+        "min": 0.2,
+        "max": 1.0
+      },
+      "maxSafePct": {
+        "lip": 1.0,
+        "bodyLotion": 1.5,
+        "notes": "Verify the batch IFRA certificate (Cat 1 lip / Cat 5A body lotion). Linalool and linalyl acetate are allergens to declare when over threshold."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 24,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Prefer true Lavandula angustifolia. BA Bulgarian is the practical starter quote; confirm botanical on the COA. WSP’s 40/42 oil is a standardized lavender/lavandin blend (not single-origin angustifolia) and is quoted only as a budget alternative.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 56.699,
+          "packLabel": "2 oz Bulgarian lavender essential oil",
+          "priceUsd": 12.95,
+          "costPerG": 0.2284,
+          "url": "https://www.bulkapothecary.com/essential-oils/lavender-oil/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "Select the Bulgarian 2 oz option (not 40/42). BA also lists French and Population grades. Small EO sizes treated as weight."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 52.6408,
+          "packLabel": "2 fl oz Lavender 40/42 EO 139",
+          "priceUsd": 12.05,
+          "costPerG": 0.2289,
+          "url": "https://www.wholesalesuppliesplus.com/products/lavender-40-42-eo-certified-100-pure-139",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "volume_estimated_weight",
+          "notes": "Standardized 40% linalool / 42% linalyl acetate blend of lavender and lavandin. Weight estimated at 0.89 g/mL × 2 fl oz. Not a substitute when a pure L. angustifolia claim is required."
+        }
+      ]
+    },
+    {
+      "id": "eo-sweet-orange",
+      "name": "Sweet Orange Essential Oil",
+      "inciName": "Citrus Aurantium Dulcis (Orange) Peel Oil",
+      "category": "essential_oil",
+      "defaultPhase": "cool_down",
+      "typicalUsagePct": {
+        "min": 0.2,
+        "max": 1.0
+      },
+      "maxSafePct": {
+        "lip": 1.0,
+        "bodyLotion": 1.5,
+        "notes": "Sweet orange is generally considered non-phototoxic, unlike cold-pressed lemon, lime, bergamot, grapefruit, and bitter orange. Still verify the batch IFRA certificate. Citrus oils oxidize; keep tightly closed and consider a shorter in-use life."
+      },
+      "lipSafe": true,
+      "shelfLifeMonths": 12,
+      "phWindow": null,
+      "phototoxic": false,
+      "notes": "Bright, non-phototoxic citrus for lip and leave-on lotion at conservative IFRA Cat 1 / 5A levels. Do not substitute cold-pressed lemon, lime, bergamot, or grapefruit at these rates.",
+      "quotes": [
+        {
+          "supplier": "Bulk Apothecary",
+          "packSizeG": 56.699,
+          "packLabel": "2 oz Orange (sweet) essential oil",
+          "priceUsd": 8.26,
+          "costPerG": 0.1457,
+          "url": "https://www.bulkapothecary.com/orange-sweet-essential-oil/",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "weight",
+          "notes": "BA small EO sizes treated as weight (oz label on a ladder up to 5 lb)."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packSizeG": 52.6408,
+          "packLabel": "2 fl oz Orange (Sweet) EO 134",
+          "priceUsd": 7.25,
+          "costPerG": 0.1377,
+          "url": "https://www.wholesalesuppliesplus.com/products/orange-sweet-eo-certified-100-pure-134",
+          "checkedDate": "2026-11-23",
+          "unitBasis": "volume_estimated_weight",
+          "notes": "Weight estimated at 0.89 g/mL × 2 fl oz."
+        }
+      ]
+    }
+  ],
+  "containers": [
+    {
+      "id": "tube-lip-015oz",
+      "name": "0.15 oz Twist-Up Lip Balm Tubes with Caps",
+      "type": "tube",
+      "sizeLabel": "0.15 oz",
+      "approxFillG": 4.25,
+      "notes": "Standard 0.15 oz polypropylene twist-up tubes. Caps are included in both quoted packs. A 100 g balm batch fills about 20–22 tubes after normal pouring loss.",
+      "quotes": [
+        {
+          "supplier": "SKS Bottle & Packaging",
+          "packQty": 144,
+          "priceUsd": 24.48,
+          "unitCostUsd": 0.17,
+          "url": "https://www.sks-bottle.com/product/304435.html",
+          "checkedDate": "2026-11-23",
+          "notes": "Stock #0805-36, 144/bag, white PP tubes with white friction-fit caps included. Unit price $0.17. Also offered as 24/bag at $7.68 and 2500/cs at $350.00 on the same page."
+        },
+        {
+          "supplier": "Bramble Berry",
+          "packQty": 50,
+          "priceUsd": 9.49,
+          "unitCostUsd": 0.1898,
+          "url": "https://www.brambleberry.com/shop-by-product/packaging/jars/lip-balm-tube---white/V001068.html",
+          "checkedDate": "2026-11-23",
+          "notes": "White lip balm tubes, page states capacity 0.15 oz. Caps included (press-on tops). Also offered as a 10-pack at $2.49."
+        }
+      ]
+    },
+    {
+      "id": "tin-lip-025oz",
+      "name": "0.25 oz Lip Balm Tins with Lids",
+      "type": "tin",
+      "sizeLabel": "0.25 oz",
+      "approxFillG": 7.0,
+      "notes": "Small metal tins with lids for pot-style lip balm. Fill weight is approximate and depends on density and headspace.",
+      "quotes": [
+        {
+          "supplier": "SKS Bottle & Packaging",
+          "packQty": 144,
+          "priceUsd": 192.38,
+          "unitCostUsd": 1.336,
+          "url": "https://www.sks-bottle.com/product/7732.html",
+          "checkedDate": "2026-11-23",
+          "notes": "Stock #5562-01, 144/cs, 1/4 oz flat metal tins with rolled-edge covers (lids) included. Page unit cost $1.3360."
+        },
+        {
+          "supplier": "Wholesale Supplies Plus",
+          "packQty": 24,
+          "priceUsd": 17.46,
+          "unitCostUsd": 0.7275,
+          "url": "https://www.wholesalesuppliesplus.com/products/0-25-oz-lip-slide-tin-set-black",
+          "checkedDate": "2026-11-23",
+          "notes": "0.25 oz black lip slide tin sets; lids/covers included with each set. Slide-tin style rather than a classic round pot."
+        }
+      ]
+    },
+    {
+      "id": "tin-lip-050oz",
+      "name": "0.5 oz Lip Balm Tins with Lids",
+      "type": "tin",
+      "sizeLabel": "0.5 oz",
+      "approxFillG": 14.0,
+      "notes": "Larger metal lip balm/salve tins with lids. Only a SKS quote was cleanly verified in this pass.",
+      "quotes": [
+        {
+          "supplier": "SKS Bottle & Packaging",
+          "packQty": 144,
+          "priceUsd": 228.96,
+          "unitCostUsd": 1.59,
+          "url": "https://www.sks-bottle.com/product/7734.html",
+          "checkedDate": "2026-11-23",
+          "notes": "Stock #5562-02, 144/cs, 1/2 oz flat metal tins with rolled-edge covers (lids) included. Also offered as 12/bag at $32.28 on the same page."
+        }
+      ]
+    },
+    {
+      "id": "jar-lotion-2oz",
+      "name": "2 oz Lotion Jars with Lids",
+      "type": "jar",
+      "sizeLabel": "2 oz",
+      "approxFillG": 56.7,
+      "notes": "Clear PET straight-sided cosmetic jars suitable for lotion. Lids/caps are included in the quoted kit.",
+      "quotes": [
+        {
+          "supplier": "SKS Bottle & Packaging",
+          "packQty": 48,
+          "priceUsd": 27.36,
+          "unitCostUsd": 0.57,
+          "url": "https://www.sks-bottle.com/product/4192.html",
+          "checkedDate": "2026-11-23",
+          "notes": "Stock #0605-54, 48/bag, 2 oz clear PET straight-sided jars with white PE-lined dome caps included."
+        }
+      ]
+    },
+    {
+      "id": "jar-lotion-4oz",
+      "name": "4 oz Lotion Jars with Lids",
+      "type": "jar",
+      "sizeLabel": "4 oz",
+      "approxFillG": 113.4,
+      "notes": "Clear PET straight-sided cosmetic jars suitable for lotion. Lids/caps are included in the quoted kit.",
+      "quotes": [
+        {
+          "supplier": "SKS Bottle & Packaging",
+          "packQty": 24,
+          "priceUsd": 18.48,
+          "unitCostUsd": 0.77,
+          "url": "https://www.sks-bottle.com/product/4142.html",
+          "checkedDate": "2026-11-23",
+          "notes": "Stock #0605-41, 24/bag, 4 oz clear PET straight-sided jars with black smooth lined plastic dome caps included."
+        }
+      ]
+    }
+  ],
+  "starterFormulas": [
+    {
+      "id": "classic-natural-beeswax-lip-balm",
+      "name": "Classic Natural Beeswax Lip Balm",
+      "isAnhydrous": true,
+      "targetPhRange": null,
+      "recommendedContainerIds": [
+        "tube-lip-015oz",
+        "tin-lip-025oz",
+        "tin-lip-050oz"
+      ],
+      "batchSizeDefaultG": 100,
+      "estimatedShelfLifeMonths": 12,
+      "phaseTempsC": {
+        "melt": {
+          "min": 75,
+          "max": 80
+        },
+        "coolDownAdd": {
+          "min": 60,
+          "max": 65
+        },
+        "pour": {
+          "min": 58,
+          "max": 62
+        }
+      },
+      "ingredients": [
+        {
+          "ingredientId": "beeswax-yellow",
+          "pct": 20.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "cocoa-butter-deodorized",
+          "pct": 12.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "shea-butter-refined",
+          "pct": 10.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "sweet-almond-oil",
+          "pct": 26.5,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "jojoba-oil-golden",
+          "pct": 18.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "castor-oil",
+          "pct": 12.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "vitamin-e-t50",
+          "pct": 0.5,
+          "phase": "cool_down"
+        },
+        {
+          "ingredientId": "eo-peppermint",
+          "pct": 1.0,
+          "phase": "cool_down"
+        }
+      ],
+      "steps": [
+        "Weigh all ingredients. A 100 g batch fills about 20–22 standard 0.15 oz tubes after normal pouring loss.",
+        "Combine beeswax, cocoa butter, shea butter, sweet almond oil, jojoba oil, and castor oil. Melt gently to 75–80 °C until completely clear and uniform.",
+        "Hold briefly at temperature, then cool relatively quickly toward 60–65 °C (a cool water bath helps) to reduce shea recrystallization/graininess.",
+        "At 60–65 °C, stir in vitamin E T-50 and peppermint essential oil until evenly dispersed.",
+        "Pour at 58–62 °C into tubes or tins, slightly overfilling / doming the surface to offset beeswax shrinkage. Top off once if a sinkhole forms.",
+        "Leave undisturbed until fully set (several hours at room temperature, or briefly chill after a skin has formed). Cap only when completely cool."
+      ],
+      "notes": "IFRA Category 1 lip formula with a 1.0% peppermint load at the conservative total-EO comfort cap. Completely anhydrous, so no water-phase preservative is required; vitamin E is an antioxidant only. Deodorized cocoa butter avoids a chocolate note under peppermint. For a nut-free version, replace sweet almond oil 1:1 with a confirmed high-oleic sunflower oil. Verify the peppermint batch IFRA Cat 1 certificate before selling."
+    },
+    {
+      "id": "natural-emulsion-body-lotion",
+      "name": "Natural Emulsion Body Lotion",
+      "isAnhydrous": false,
+      "targetPhRange": {
+        "min": 4.8,
+        "max": 5.5
+      },
+      "recommendedContainerIds": [
+        "jar-lotion-2oz",
+        "jar-lotion-4oz"
+      ],
+      "batchSizeDefaultG": 200,
+      "estimatedShelfLifeMonths": 6,
+      "phaseTempsC": {
+        "waterHeat": {
+          "min": 70,
+          "max": 75
+        },
+        "oilHeat": {
+          "min": 70,
+          "max": 75
+        },
+        "coolDownAdd": {
+          "max": 45
+        }
+      },
+      "ingredients": [
+        {
+          "ingredientId": "distilled-water",
+          "pct": 73.0,
+          "phase": "water"
+        },
+        {
+          "ingredientId": "olivem-1000",
+          "pct": 6.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "shea-butter-refined",
+          "pct": 5.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "cocoa-butter-deodorized",
+          "pct": 2.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "sweet-almond-oil",
+          "pct": 8.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "jojoba-oil-golden",
+          "pct": 4.0,
+          "phase": "oil"
+        },
+        {
+          "ingredientId": "vitamin-e-t50",
+          "pct": 0.5,
+          "phase": "cool_down"
+        },
+        {
+          "ingredientId": "optiphen-plus",
+          "pct": 1.0,
+          "phase": "cool_down"
+        },
+        {
+          "ingredientId": "eo-lavender",
+          "pct": 0.5,
+          "phase": "cool_down"
+        }
+      ],
+      "steps": [
+        "Weigh the water phase and the oil phase separately. Heat the distilled water to 70–75 °C; cover to limit evaporation.",
+        "In a second vessel, combine Olivem 1000, shea butter, cocoa butter, sweet almond oil, and jojoba oil. Heat to 70–75 °C until the emulsifier and butters are fully melted and clear.",
+        "Reweigh the water phase and replenish any evaporated water with freshly heated distilled water before emulsifying, so the formula still totals 100%.",
+        "Pour the oil phase into the water phase (or water into oil, consistently) and mix with a stick blender until a uniform, glossy emulsion forms. Continue mixing as it cools.",
+        "When the emulsion is below 45 °C, stir in vitamin E T-50, Optiphen Plus, and lavender essential oil until fully dispersed.",
+        "Check pH once cooled to room temperature and adjust into 4.8–5.5 if needed (this range is skin-friendly and inside Optiphen Plus’s pH ≤ 6.0 window).",
+        "Jar only when cool. Date the batch and store away from heat and sunlight. For anything sold later, run a preservative efficacy (challenge) test."
+      ],
+      "notes": "O/W lotion using verified in-stock Optiphen Plus at 1.0% (within 0.75–1.5%) because Geogard ECT was not available from the four allowed suppliers on 2026-11-23. If ECT is sourced later, it can replace Optiphen Plus at 1.0% (usage 0.6–1.0%, pH 3–8). Vitamin E is not a preservative. Lavender is 0.5%, inside a conservative IFRA Cat 5A comfort range. Oil phase including emulsifier is 25%, at the Olivem 1000 practical ceiling — do not increase oils without retesting stability."
+    }
+  ],
+  "guardrailRules": [
+    {
+      "id": "formula-sum-100",
+      "severity": "error",
+      "appliesTo": [
+        "all"
+      ],
+      "message": "Ingredient percentages must add up to 100% (tolerance 0.01).",
+      "validation": {
+        "type": "sum_equals",
+        "field": "ingredients[].pct",
+        "target": 100.0,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "water-requires-preservative",
+      "severity": "error",
+      "appliesTo": [
+        "all"
+      ],
+      "message": "Any formula with water, hydrosol, or another aqueous phase must include a broad-spectrum preservative. Vitamin E and other antioxidants do not count.",
+      "validation": {
+        "type": "required_if",
+        "ifAnyIngredient": {
+          "categoryIn": [
+            "water"
+          ],
+          "orInciContains": [
+            "Aqua",
+            "Water",
+            "Hydrosol"
+          ],
+          "orNameContains": [
+            "hydrosol",
+            "aloe juice",
+            "witch hazel"
+          ]
+        },
+        "thenRequire": {
+          "categoryIn": [
+            "preservative"
+          ],
+          "minCount": 1,
+          "excludeCategories": [
+            "antioxidant"
+          ]
+        }
+      }
+    },
+    {
+      "id": "preservative-usage-range",
+      "severity": "error",
+      "appliesTo": [
+        "all"
+      ],
+      "message": "Each preservative must be used within its typical usage range (min–max %). Too little may not protect the product; too much can irritate and may be out of spec.",
+      "validation": {
+        "type": "usage_within",
+        "ingredientCategory": "preservative",
+        "rangeSource": "typicalUsagePct"
+      }
+    },
+    {
+      "id": "preservative-ph-window",
+      "severity": "error",
+      "appliesTo": [
+        "emulsion",
+        "aqueous"
+      ],
+      "message": "The formula’s target pH must stay inside the preservative’s active pH window. Aim for a skin-friendly 4.5–5.5 when that range also satisfies the preservative.",
+      "validation": {
+        "type": "range_overlap",
+        "formulaField": "targetPhRange",
+        "ingredientCategory": "preservative",
+        "ingredientField": "phWindow",
+        "requiredForAqueous": true,
+        "guidanceRange": {
+          "min": 4.5,
+          "max": 5.5
+        },
+        "guidanceSeverity": "warning",
+        "guidanceMessage": "A finished-product pH of 4.5–5.5 is generally more skin-friendly; keep it inside the preservative window as well."
+      }
+    },
+    {
+      "id": "lip-safe-ingredients-only",
+      "severity": "error",
+      "appliesTo": [
+        "lip"
+      ],
+      "message": "Lip products cannot include any ingredient marked lipSafe: false.",
+      "validation": {
+        "type": "all_true",
+        "productTypes": [
+          "lip",
+          "lip_balm",
+          "lip_tin"
+        ],
+        "field": "lipSafe"
+      }
+    },
+    {
+      "id": "eo-dermal-cap-ifra-cat1-lip",
+      "severity": "error",
+      "appliesTo": [
+        "lip"
+      ],
+      "message": "Lip balm essential-oil levels must stay at or below each oil’s maxSafePct.lip and a conservative 1.0% total EO comfort cap. Always verify the supplier’s batch IFRA Category 1 certificate before selling.",
+      "validation": {
+        "type": "eo_cap",
+        "productTypes": [
+          "lip",
+          "lip_balm",
+          "lip_tin"
+        ],
+        "ifraCategory": "1",
+        "totalEoComfortCapPct": 1.0,
+        "comfortCapSeverity": "warning",
+        "perIngredientField": "maxSafePct.lip",
+        "overIngredientMaxSeverity": "error",
+        "requireBatchIfraCertNote": true
+      }
+    },
+    {
+      "id": "eo-dermal-cap-ifra-cat5a-lotion",
+      "severity": "warning",
+      "appliesTo": [
+        "body_lotion"
+      ],
+      "message": "For leave-on body lotion, keep total essential oils in a typical 0.5–1.5% range, warn above 2.0%, and block any single oil above its maxSafePct.bodyLotion. Verify the batch IFRA Category 5A certificate before selling.",
+      "validation": {
+        "type": "eo_cap",
+        "productTypes": [
+          "body_lotion",
+          "lotion",
+          "cream"
+        ],
+        "ifraCategory": "5A",
+        "typicalTotalRangePct": {
+          "min": 0.5,
+          "max": 1.5
+        },
+        "warnAboveTotalPct": 2.0,
+        "warnSeverity": "warning",
+        "perIngredientField": "maxSafePct.bodyLotion",
+        "overIngredientMaxSeverity": "error",
+        "requireBatchIfraCertNote": true
+      }
+    },
+    {
+      "id": "eo-phototoxicity-flag",
+      "severity": "warning",
+      "appliesTo": [
+        "leave_on"
+      ],
+      "message": "Phototoxic cold-pressed citrus oils (bergamot, bitter orange, lemon, lime, grapefruit) are flagged in leave-on products. Sweet orange and steam-distilled or FCF (furanocoumarin-free) grades are generally non-phototoxic, but still confirm the grade.",
+      "validation": {
+        "type": "flag_if",
+        "productTypes": [
+          "lip",
+          "lip_balm",
+          "body_lotion",
+          "leave_on"
+        ],
+        "ifPhototoxic": true,
+        "orNameOrInciContains": [
+          "bergamot",
+          "Citrus Aurantium Bergamia",
+          "bitter orange",
+          "Citrus Aurantium Peel Oil",
+          "lemon",
+          "Citrus Limon",
+          "lime",
+          "Citrus Aurantifolia",
+          "grapefruit",
+          "Citrus Paradisi"
+        ],
+        "exceptionsNote": "Sweet orange (Citrus Aurantium Dulcis / Citrus Sinensis) and steam-distilled or FCF grades are treated as non-phototoxic when phototoxic is false.",
+        "leaveOnPhototoxicSeverity": "error",
+        "unspecifiedCitrusSeverity": "warning"
+      }
+    },
+    {
+      "id": "cool-down-temperature-guard",
+      "severity": "warning",
+      "appliesTo": [
+        "all"
+      ],
+      "message": "Add preservatives, vitamin E, and essential oils in cool-down: below 45 °C for emulsions, and below 65 °C for anhydrous balms.",
+      "validation": {
+        "type": "phase_temperature",
+        "categories": [
+          "preservative",
+          "antioxidant",
+          "essential_oil"
+        ],
+        "requiredPhase": "cool_down",
+        "maxTempC": {
+          "emulsion": 45,
+          "anhydrous": 65
+        },
+        "infoIfPhaseCorrect": true,
+        "infoSeverity": "info"
+      }
+    },
+    {
+      "id": "inci-export-ordering",
+      "severity": "info",
+      "appliesTo": [
+        "label_export"
+      ],
+      "message": "INCI lists go in descending order by % weight down to 1.0%. Ingredients strictly below 1.0% may be listed in any order after that line. List water as Aqua (or Water (Aqua)). Expand multi-component raw materials to their constituent INCI names and merge duplicates.",
+      "validation": {
+        "type": "inci_order_spec",
+        "sortDescendingAtOrAbovePct": 1.0,
+        "belowThresholdOrder": "any",
+        "waterNames": [
+          "Aqua",
+          "Water (Aqua)"
+        ],
+        "expandMultiComponentRawMaterials": true,
+        "mergeDuplicateInciNames": true
+      }
+    }
+  ]
+}

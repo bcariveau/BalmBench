@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="BalmBench">
+  <rect width="512" height="512" rx="96" fill="#f3eadc"/>
+  <circle cx="256" cy="268" r="188" fill="#3f6b4e"/>
+  <rect x="146" y="236" width="220" height="150" rx="28" fill="#f7f1e4"/>
+  <rect x="128" y="196" width="256" height="58" rx="24" fill="#c46b4a"/>
+  <ellipse cx="338" cy="150" rx="58" ry="40" fill="#e7efdf"/>
+  <path d="M318 150c28-8 48 10 48 10s-18 28-48 22  -28-24-28-24 8-4 28-8z" fill="#3f6b4e"/>
+</svg>
